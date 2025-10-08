@@ -297,7 +297,7 @@ body {
 
 .footer {
     grid-area: footer;
-    padding: var(--general-padding);
+    padding: var(--general-padding) var(--padding-x);
     color: var(--text-color-light);
 }
 
