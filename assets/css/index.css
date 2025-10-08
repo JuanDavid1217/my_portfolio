@@ -248,8 +248,7 @@ body {
 }
 
 .off-canvas-link {
-    width: 100%;
-    flex: 1 1 100%;
+    width: auto;
     padding: var(--general-padding);
     display: flex;
     justify-content: center;
@@ -299,6 +298,30 @@ body {
     grid-area: footer;
     padding: var(--general-padding) var(--padding-x);
     color: var(--text-color-light);
+    text-align: center;
+}
+
+.footer p {
+    margin: .1rem;
+}
+
+.footer div {
+    margin: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    color: var(--text-color-light);
+    transition: color .3s ease;
+}
+
+.icon:hover {
+    color: var(--text-color-dark);
 }
 
 .div {
