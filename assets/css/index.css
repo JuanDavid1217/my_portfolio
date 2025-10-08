@@ -1,0 +1,393 @@
+:root {
+    /*Colors*/
+    --color1: #607d0f;
+    --color2: #799528;
+    --color3: #92ae40;
+    --color4: #aac659;
+    --color5: #c3de71;
+    --color-filter-blur: #607d0f90;
+    --text-color-dark: #161616;
+    --text-color-light: #fbffed;
+
+    --logo-size: 3rem;
+    --padding-x: 2rem;
+    --padding-y: 0.5rem;
+    --general-padding: 1rem;
+    --header-height: calc(var(--logo-size) + (var(--padding-y) * 2));
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+    color: var(--text-color-dark);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: var(--header-height) auto auto;
+    grid-template-areas: 
+    "header     header      header      header      header      header      header     header      header      header      header      header"
+    "main       main        main        main        main        main        main       main        main        main        main        main"
+    "footer     footer      footer      footer      footer      footer      footer     footer      footer      footer      footer      footer";
+
+    background-color: var(--color1);
+}
+
+[id] {
+    scroll-margin-top: var(--header-height);
+}
+
+.section {
+    width: 100%;
+    height: auto;
+    /*padding: .5rem;*/
+    padding: var(--general-padding);
+}
+
+.card {
+    background-color: var(--text-color-light);
+    width: 98%;
+    margin: 0 auto;
+    padding: var(--general-padding);
+    border-radius: .5rem;
+}
+
+/*######################## This is to the sticky header ##################################*/
+
+.header {
+    grid-area: header;
+    padding: var(--padding-y) var(--padding-x);
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    transition: box-shadow 0.3s linear;
+    width: 100%;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(.4rem);
+    background-color: var(--color-filter-blur);
+}
+
+.header.scrolled {
+    box-shadow: 0 .2rem .5rem .02rem #0009;
+}
+
+/*#################################################################################*/
+/*##################### This is to the profile/logo image #########################*/
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    width: var(--logo-size);
+    height: var(--logo-size);
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 0 50%;
+    box-shadow: 0 0 .5rem .02rem #0009;
+}
+
+/*#################################################################################*/
+/*##################### This is to the canvas menu ################################*/
+
+.off-canvas-logo {
+    --burguer-size: 1.5rem;
+    --burger-spacing: calc((var(--burguer-size) / 5));
+    --burger-radius: calc(var(--burger-spacing) / 2);
+
+    position: relative;
+    width: calc(var(--burguer-size) * 1.5);
+    height: var(--burguer-size);
+    margin-left: 2rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    /*border: thin solid black;*/
+}
+
+.off-canvas-btn {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.off-canvas-burger {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: var(--burger-spacing);
+    border-radius: var(--burger-radius);
+    transform: rotate(0deg) translate(0, calc(var(--burger-spacing) * 2.45));
+    transition: transform .3s ease background-color .3s ease;
+    transform-origin: top left;
+    z-index: -1;
+    background-color: var(--text-color-light);
+    box-shadow: 0 0 .5rem .02rem #0009;
+}
+
+.off-canvas-burger::before,
+.off-canvas-burger::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: var(--burger-spacing);
+    border-radius: var(--burger-radius);
+    background-color: var(--text-color-light);
+    transition: transform .3s ease;
+    box-shadow: 0 0 .5rem .02rem #0009;
+}
+
+.off-canvas-burger::before {
+    transform: rotate(0deg) translate(0, calc(var(--burger-spacing) * -2));
+}
+
+
+.off-canvas-burger::after {
+    transform: rotate(0deg) translate(0, var(--burger-spacing));
+}
+
+.off-canvas-btn:checked + .off-canvas-burger {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.off-canvas-btn:checked + .off-canvas-burger::before {
+    transform: rotate(45deg) translate(calc(var(--burger-spacing) / 1.5));
+}
+
+.off-canvas-btn:checked + .off-canvas-burger::after {
+    transform: rotate(-45deg) translate(calc(var(--burger-spacing) / 1.3));
+}
+
+.off-canvas-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000090;
+    transform: translate(0, calc(-1 * (100% + var(--header-height))));
+    transition: transform .3s ease;
+    z-index: -2;
+}
+
+.off-canvas-btn:checked ~ .off-canvas-menu {
+    transform: translate(0, 0);
+}
+
+.off-canvas-menu-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.off-canvas-menu-container::-webkit-scrollbar {
+    display: none;
+}
+
+.off-canvas-link {
+    width: 100%;
+    flex: 1 1 100%;
+    padding: var(--general-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: var(--text-color-light);
+    transition: color .3s ease;
+    text-decoration: none;
+}
+
+.off-canvas-link:hover {
+    color: var(--text-color-dark);
+}
+
+.off-canvas-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--color4);
+    transition: width .3s ease, left .3s ease;
+    z-index: -1;
+}
+
+.off-canvas-link:hover::before {
+    width: 100%;
+}
+
+.to-center::before {
+    left: 50%;
+}
+
+.to-center:hover::before {
+    left: 0;
+}
+
+
+/*#############################################################################################*/
+
+.main {
+    grid-area: main;
+    background-color: #c3de71;
+}
+
+.footer {
+    grid-area: footer;
+    padding: var(--general-padding);
+}
+
+.div {
+    height: 500px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .off-canvas-logo {
+        position: static;
+        width: auto;
+        height: 100%;
+        margin-left: 2rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    .off-canvas-btn {
+        display: none;
+    }
+
+    .off-canvas-burger {
+        display: none;
+    }
+
+    .off-canvas-burger::before,
+    .off-canvas-burger::after {
+        display: none;
+    }
+
+    .off-canvas-menu {
+        position: static;
+        width: auto;
+        height: 100%;
+        display: block;
+        transform: translate(0, 0);
+        background-color: transparent;
+        z-index: 0;
+    }
+
+    .off-canvas-menu-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .off-canvas-link:hover::before {
+        border-radius: 50px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    :root {
+        --logo-size: 6rem;
+        --padding-y: 1rem;
+    }
+
+    [id] {
+        scroll-margin-top: 0;
+    }
+
+    body {
+        grid-template-columns: var(--logo-size) var(--logo-size) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "header     header      main      main        main        main        main        main        main        main        main        main"
+        "header     header      main      main        main        main        main        main        main        main        main        main"
+        "header     header      footer    footer      footer      footer      footer      footer      footer      footer      footer      footer";
+    }
+
+    .header {
+        width: calc(var(--logo-size) * 2);
+        height: 100%;
+        padding: var(--padding-y) 0;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: .2rem 0 .5rem .02rem #0009;
+    }
+
+    .header.scrolled {
+        box-shadow: .2rem 0 .5rem .02rem #0009;
+    }
+
+    .logo {
+        margin-bottom: var(--padding-y);
+    }
+
+    .logo img{
+        z-index: 1;
+    }
+
+    .off-canvas-logo {
+        width: 100%;
+        height: calc(100% - var(--logo-size));
+        align-self: center;
+        margin: 0 auto;
+        flex-shrink: 1;
+    }
+
+    .off-canvas-menu-container {
+        width: 100%;
+        height: 100%;
+        display: block;
+        overflow-y: auto;
+    }
+
+    .off-canvas-link:hover::before {
+        border-radius: 0;
+    }
+}
