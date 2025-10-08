@@ -51,7 +51,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    min-width: 10rem;
+    min-width: 13rem;
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
