@@ -248,7 +248,7 @@ body {
 }
 
 .off-canvas-link {
-    width: auto;
+    width: 100%;
     padding: var(--general-padding);
     display: flex;
     justify-content: center;
@@ -299,6 +299,7 @@ body {
     padding: var(--general-padding) var(--padding-x);
     color: var(--text-color-light);
     text-align: center;
+    font-size: smaller;
 }
 
 .footer p {
@@ -375,6 +376,10 @@ body {
         height: 100%;
         display: flex;
         flex-direction: row;
+    }
+
+    .off-canvas-link {
+        width: auto;
     }
 
     .off-canvas-link:hover::before {
