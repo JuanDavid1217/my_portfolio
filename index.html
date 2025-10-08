@@ -17,13 +17,13 @@
             Juan David
         </section>
         <section class="off-canvas-logo">
-            <input type="checkbox" class="off-canvas-btn">
+            <input id="off-canvas-btn" type="checkbox" class="off-canvas-btn">
             <label class="off-canvas-burger"></label>
             <nav class="off-canvas-menu">
                 <div class="off-canvas-menu-container">
-                    <a href="#section-1" class="off-canvas-link to-center">Sobre mí</a>
-                    <a href="#section-2" class="off-canvas-link to-center">Mis proyectos</a>
-                    <a href="#section-3" class="off-canvas-link to-center">Contactame</a>
+                    <a id="about-me" href="#section-1" class="off-canvas-link to-center">Sobre mí</a>
+                    <a id="my-projects" href="#section-2" class="off-canvas-link to-center">Mis proyectos</a>
+                    <a id="contact" href="#section-3" class="off-canvas-link to-center">Contactame</a>
                 </div>
             </nav> 
         </section>
@@ -70,6 +70,20 @@
             }
         });
 
+        function closeCanvas () {
+            const offCanvasBtn = document.getElementById('off-canvas-btn');
+            if (offCanvasBtn.checked == true) {
+                offCanvasBtn.checked = false;
+            }
+        }
+
+        const aboutMe = document.getElementById('about-me');
+        aboutMe.addEventListener('click', closeCanvas);
+        const myProjects = document.getElementById('my-projects');
+        myProjects.addEventListener('click', closeCanvas);
+        const contact = document.getElementById('contact');
+        contact.addEventListener('click', closeCanvas);
+        
     </script>
 </body>
 </html>
