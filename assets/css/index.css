@@ -152,7 +152,7 @@ body {
     position: relative;
     width: calc(var(--burguer-size) * 1.5);
     height: var(--burguer-size);
-    margin-left: 2rem;
+    margin-left: var(--padding-x);
     flex-grow: 0;
     flex-shrink: 0;
 }
@@ -319,7 +319,7 @@ body {
         position: static;
         width: auto;
         height: 100%;
-        margin-left: 2rem;
+        margin-left: var(--padding-x);
         flex-grow: 0;
         flex-shrink: 0;
     }
