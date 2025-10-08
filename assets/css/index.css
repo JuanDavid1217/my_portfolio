@@ -51,6 +51,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    min-width: 10rem;
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -93,7 +94,6 @@ body {
     position: sticky;
     top: 0;
     transition: box-shadow 0.3s linear;
-    width: 100%;
 }
 
 .header::before {
@@ -131,6 +131,17 @@ body {
 }
 
 /*#################################################################################*/
+/*##################### This is to the name #######################################*/
+
+.name {
+    font-weight: bold;
+    color: var(--text-color-light);
+    margin-left: var(--padding-x);
+    text-align: center;
+    display: none;
+}
+
+/*#################################################################################*/
 /*##################### This is to the canvas menu ################################*/
 
 .off-canvas-logo {
@@ -144,8 +155,6 @@ body {
     margin-left: 2rem;
     flex-grow: 0;
     flex-shrink: 0;
-
-    /*border: thin solid black;*/
 }
 
 .off-canvas-btn {
@@ -296,6 +305,14 @@ body {
     height: 500px;
 }
 
+/*#####################################################################*/
+/*##################### Meadia Queries ################################*/
+
+@media screen and (min-width: 238px) {
+    .name {
+        display: block;
+    }
+}
 
 @media screen and (min-width: 768px) {
     .off-canvas-logo {
@@ -387,7 +404,7 @@ body {
 
     .off-canvas-logo {
         width: 100%;
-        height: calc(100% - var(--logo-size));
+        height: calc(100% - (var(--logo-size) + 1rem + (var(--padding-y) * 3)));
         align-self: center;
         margin: 0 auto;
         flex-shrink: 1;
@@ -402,5 +419,9 @@ body {
 
     .off-canvas-link:hover::before {
         border-radius: 0;
+    }
+
+    .name {
+        margin: var(--padding-y) auto;
     }
 }
