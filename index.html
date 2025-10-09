@@ -21,33 +21,43 @@
             <label class="off-canvas-burger"></label>
             <nav class="off-canvas-menu">
                 <div class="off-canvas-menu-container">
-                    <a id="about-me" href="#section-1" class="off-canvas-link to-center">Sobre mí</a>
-                    <a id="my-projects" href="#section-2" class="off-canvas-link to-center">Mis proyectos</a>
-                    <a id="contact" href="#section-3" class="off-canvas-link to-center">Contactame</a>
+                    <a id="link-1" href="#about-me" class="off-canvas-link to-center">Sobre mí</a>
+                    <a id="link-2" href="#my-projects" class="off-canvas-link to-center">Mis proyectos</a>
+                    <a id="link-3" href="#contact" class="off-canvas-link to-center">Contactame</a>
                 </div>
             </nav> 
         </section>
     </header>
     <main class="main">
-        <section id="section-1" class="section">
-            <article class="card">
-                <h2>Sobre mí</h2>
-                <p>
-                    Hola, soy Juan David Delgado Muñoz, Licenciado en Ingeniería de Software.
-                </p>
+        <section id="about-me" class="section">
+            <article class="hero-image">
+                <div class="hero-image-container">
+                    <div class="hero-image-content">
+                        <h2>Sobre mí</h2>
+                        <p>
+                            Hola, soy Juan David Delgado Muñoz.
+                        </p>
+                        <p>
+                            Licenciado en Ingeniería de Software, apasionado por el desarrollo de aplicaciones e inteligencia artificial.
+                        </p>
+                    </div>
+                </div>
             </article>
         </section>
-        <section id="section-2" class="section">
-            <article class="card">
+        <section id="my-projects" class="section">
+            <article class="container">
                 <h2>Mis Proyectos</h2>
                 <p>Aquí iran mis proyectos personales.</p>
             </article>
         </section>
-        <section id="section-3" class="section">
-            <article class="card">
+        <section id="contact" class="section">
+            <article class="container">
                 <h2>Contactame</h2>
-                <p>Aqui un Formulario de Contacto.</p>
-                </article>
+                <p>Si estas interesado en realizar tu proyecto conmigo, envíame un email y con gusto te respondere.</p>
+                <form action="">
+
+                </form>
+            </article>
         </section>
     </main>
     <footer class="footer">
@@ -77,13 +87,13 @@
             }
         }
 
-        const aboutMe = document.getElementById('about-me');
+        const aboutMe = document.getElementById('link-1');
         aboutMe.addEventListener('click', closeCanvas);
-        const myProjects = document.getElementById('my-projects');
+        const myProjects = document.getElementById('link-2');
         myProjects.addEventListener('click', closeCanvas);
-        const contact = document.getElementById('contact');
+        const contact = document.getElementById('link-3');
         contact.addEventListener('click', closeCanvas);
-        
+
     </script>
 </body>
 </html>
