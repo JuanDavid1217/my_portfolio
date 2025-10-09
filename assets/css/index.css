@@ -50,7 +50,15 @@ img {
 }
 
 h2 {
-    margin: 0;
+    text-align: center;
+}
+
+h3 {
+    font-weight: 500;
+}
+
+p {
+    text-align: justify;
 }
 
 body {
@@ -76,15 +84,6 @@ body {
 
 .section {
     width: 100%;
-    padding-top: 0;
-    min-height: calc(100dvh - var(--header-height));
-}
-
-.container {
-    width: 100%;
-    min-height: inherit;
-    max-height: auto;
-    padding: var(--general-padding);
 }
 
 .hero-image {
@@ -93,6 +92,7 @@ body {
     background-image: url('../images/tmnt3.avif');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     background-attachment: fixed;
 }
 
@@ -101,37 +101,40 @@ body {
     min-height: inherit;
     background-color: var(--color-filter-blur-2);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-.hero-image-content {
+.content {
     padding: var(--general-padding);
     border-radius: .5rem;
-    margin: 0 .3rem;
+    margin: .3rem;
     position: relative;
     background-color: var(--color-filter-blur-3);
     backdrop-filter: blur(.4rem);
 }
 
-/*.hero-image-content::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: .5rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: var(--color-filter-blur-3);
-    z-index: 0;
-}*/
-
 .card {
+    --padding-card: 1rem;
+    --border-radius-card: .5rem;
     background-color: var(--text-color-light);
-    width: 98%;
-    margin: 0 auto;
+    width: 100%;
     padding: var(--general-padding);
-    border-radius: .5rem;
+    border-radius: var(--border-radius-card);
+    margin-bottom: .5rem;
+}
+
+.card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-image {
+    object-fit: cover;
+    object-position: 0 50%;
+    overflow: hidden;
+    border-top-left-radius: var(--border-radius-card);
+    border-top-right-radius: var(--border-radius-card);
 }
 
 /*######################## This is to the sticky header ##################################*/
@@ -392,6 +395,18 @@ body {
     }
 }
 
+@media screen and (min-width: 576px) {
+    .card-image {
+        width: 40%;
+        border-top-right-radius: 0;
+    }
+
+    .card-content {
+        width: 60%;
+        padding-left: var(--padding-card);
+    }
+}
+
 @media screen and (min-width: 768px) {
     .off-canvas-logo {
         position: static;
@@ -459,10 +474,6 @@ body {
 
     [id] {
         scroll-margin-top: 0;
-    }
-
-    .section {
-        min-height: 100dvh;
     }
 
     .hero-image {
