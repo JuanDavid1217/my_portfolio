@@ -138,7 +138,49 @@ body {
 .card-container {
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+}
+
+.card-container form {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto 0;
+}
+
+.card-container form input,
+.card-container form textarea {
+    margin-bottom: 1rem;
+    margin-top: .2rem;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    border-bottom: medium solid var(--color4);
+    font-family: inherit;
+    background-color: var(--text-color-light);
+}
+
+.card-container form textarea {
+    resize: none;
+}
+
+.card-container form * {
+    width: 100%;
+}
+
+.card-container form div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card-container form div button {
+    flex: 1;
+    border-radius: .3rem;
+    padding: .5rem 0;
 }
 
 .card-image {
