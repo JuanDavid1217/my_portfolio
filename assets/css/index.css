@@ -53,11 +53,13 @@ img {
 
 h2 {
     text-align: center;
+    text-decoration: underline;
 }
 
 h3 {
     font-weight: 500;
     font-size: 1.3rem;
+    text-align: center;
 }
 
 p {
@@ -83,6 +85,10 @@ body {
 
 [id] {
     scroll-margin-top: var(--header-height);
+}
+
+.order {
+    order: -1;
 }
 
 .section {
@@ -138,19 +144,30 @@ body {
 .card-container {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
 }
 
-.card-container form {
+.card-section-1 {
     display: flex;
-    flex-direction: column;
-    margin: 1rem auto 0;
+    overflow: hidden;
+    position: relative;
+    border-top-left-radius: var(--border-radius-card);
+    border-top-right-radius: var(--border-radius-card);
+    flex-grow: 1;
 }
 
-.card-container form input,
-.card-container form textarea {
+.card-section-1 form {
+    display: flex;
+    flex-direction: column;
+    max-width: 99%;
+    margin: 1rem auto;
+    box-shadow: 0 0 .5rem .02rem #0009;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.card-section-1 form input,
+.card-section-1 form textarea {
     margin-bottom: 1rem;
     margin-top: .2rem;
     padding: 1rem;
@@ -161,15 +178,15 @@ body {
     background-color: var(--text-color-light);
 }
 
-.card-container form textarea {
+.card-section-1 form textarea {
     resize: none;
 }
 
-.card-container form * {
+.card-section-1 form * {
     width: 100%;
 }
 
-.card-container form div {
+.card-section-1 form div {
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
@@ -177,30 +194,34 @@ body {
     align-items: center;
 }
 
-.card-container form div button {
+.card-section-1 form div button {
     flex: 1;
     border-radius: .3rem;
+    border: none;
     padding: .5rem 0;
+    cursor: pointer;
+    background-color: var(--color4);
+    font-weight: bold;
+    color: var(--text-color-dark);
+    transition: background-color .3s ease, box-shadow .3s ease, color .3s ease;
 }
 
-.card-image {
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    border-top-left-radius: var(--border-radius-card);
-    border-top-right-radius: var(--border-radius-card);
+.card-section-1 form div button:hover {
+    background-color: var(--color1);
+    box-shadow: 0 0 1rem .1rem var(--color4);
+    color: var(--text-color-light);
 }
 
-.card-image::before {
-    content: "";
+.image-filter {
     position: absolute;
     inset: 0;
     background-image: linear-gradient(to bottom, transparent 60%, var(--text-color-light));
 }
 
-.card-content {
+.card-section-2 {
     justify-content: center;
     align-content: center;
+    flex-grow: 1;
 }
 
 /*######################## This is to the sticky header ##################################*/
@@ -288,8 +309,8 @@ body {
     width: 100%;
     height: var(--burger-spacing);
     border-radius: var(--burger-radius);
-    transform: rotate(0deg) translate(0, calc(var(--burger-spacing) * 2.45));
-    transition: transform .3s ease background-color .3s ease;
+    transform: rotate(0deg) translate(0, calc(var(--burger-spacing) * 2));
+    transition: transform .3s ease, background-color .3s ease;
     transform-origin: top left;
     z-index: -1;
     background-color: var(--text-color-light);
@@ -408,7 +429,6 @@ body {
 
 .main {
     grid-area: main;
-    /*background-color: var(--color5);*/
     background-color: var(--text-color-light);
 }
 
@@ -444,10 +464,6 @@ body {
     color: var(--text-color-dark);
 }
 
-.div {
-    height: 500px;
-}
-
 /*#####################################################################*/
 /*##################### Meadia Queries ################################*/
 
@@ -458,24 +474,30 @@ body {
 }
 
 @media screen and (min-width: 576px) {
-    .card-image {
-        width: 40%;
+    .card-section-1 {
         border-top-right-radius: 0;
         border-bottom-left-radius: var(--border-radius-card);
     }
 
-    .card-image::before {
+    .image-filter {
         background-image: linear-gradient(to right, transparent 60%, var(--text-color-light));
     }
 
-    .card-image img {
+    .card-section-1 img {
         object-fit: cover;
         object-position: center;
     }
 
-    .card-content {
-        width: 60%;
+    .card-section-2 {
         padding: 0 var(--padding-card);
+    }
+
+    .width-40 {
+        width: 40%;
+    }
+
+    .width-60 {
+        width: 60%;
     }
 }
 
@@ -525,6 +547,14 @@ body {
 
     .off-canvas-link:hover::before {
         border-radius: 50px;
+    }
+
+    .width-40-2 {
+        width: 40%;
+    }
+
+    .width-60-2 {
+        width: 60%;
     }
 
 }
@@ -596,6 +626,10 @@ body {
 
     .name {
         margin: var(--padding-y) auto;
+    }
+
+    .width-50 {
+        width: 50%;
     }
 
 }
