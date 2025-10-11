@@ -549,14 +549,9 @@ body {
         border-radius: 50px;
     }
 
-    .width-40-2 {
-        width: 40%;
+    .width-50 {
+        width: 50%;
     }
-
-    .width-60-2 {
-        width: 60%;
-    }
-
 }
 
 @media screen and (min-width: 1200px) {
@@ -626,10 +621,6 @@ body {
 
     .name {
         margin: var(--padding-y) auto;
-    }
-
-    .width-50 {
-        width: 50%;
     }
 
 }
