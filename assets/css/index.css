@@ -408,7 +408,7 @@ body {
     width: 0;
     height: 100%;
     background-color: var(--color4);
-    transition: width .3s ease, left .3s ease, border-radius .3s ease;
+    transition: width .3s ease, left .3s ease;
     z-index: -1;
 }
 
@@ -545,7 +545,7 @@ body {
         width: auto;
     }
 
-    .off-canvas-link:hover::before {
+    .off-canvas-link::before {
         border-radius: 50px;
     }
 
@@ -615,7 +615,7 @@ body {
         overflow-y: auto;
     }
 
-    .off-canvas-link:hover::before {
+    .off-canvas-link::before {
         border-radius: 0;
     }
 
