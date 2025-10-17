@@ -285,7 +285,7 @@ body {
 
 .off-canvas-logo {
     --burguer-size: 1.5rem;
-    --burger-spacing: calc((var(--burguer-size) / 5));
+    --burger-spacing: calc(var(--burguer-size) / 5);
     --burger-radius: calc(var(--burger-spacing) / 2);
 
     position: relative;
