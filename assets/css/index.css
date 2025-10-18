@@ -130,7 +130,9 @@ body {
     margin-top: var(--content-margin);
 }
 
-.card {
+.card,
+.grid-card,
+.item {
     --padding-card: 1rem;
     --border-radius-card: .5rem;
     background-color: var(--text-color-light);
@@ -139,6 +141,77 @@ body {
     border-radius: var(--border-radius-card);
     margin-bottom: .5rem;
     color:var(--text-color-dark);
+}
+
+.grid-card {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.item {
+    box-shadow: 0 0 0.5rem 0.02rem #0009;
+    margin: 1rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    max-height: fit-content;
+    transition: transform .3s ease;
+}
+
+.item:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.item .image {
+    width: 70%;
+    margin: 0 auto;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.item .image img {
+    display: flex;
+}
+
+.item .data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.item .data .titles {
+    margin-bottom: 1rem;
+}
+
+.item .data .titles h3 {
+    margin: 0;
+}
+
+.item .description::-webkit-scrollbar {
+    display: none;
+}
+
+.item .description {
+    margin-top: .2rem;
+    overflow-y: auto;
+}
+
+.item .links {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.item .links a {
+    color:inherit
 }
 
 .card-container {
@@ -212,7 +285,8 @@ body {
     color: var(--text-color-light);
 }
 
-.image-filter {
+.image-filter,
+.item .filter {
     position: absolute;
     inset: 0;
     background-image: linear-gradient(to bottom, transparent 60%, var(--text-color-light));
@@ -551,6 +625,14 @@ body {
 
     .width-50 {
         width: 50%;
+    }
+
+    .grid-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .item {
+        max-height: 450px;
     }
 }
 
