@@ -98,7 +98,7 @@ body {
 .hero-image {
     width: 100%;
     min-height: inherit;
-    background-image: url('../images/tmnt3.avif');
+    background-image: url('../images/background.avif');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
