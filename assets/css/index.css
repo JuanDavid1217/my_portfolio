@@ -117,18 +117,23 @@ body {
     --content-margin: .3rem;
     padding: var(--general-padding);
     border-radius: .5rem;
+    margin: var(--content-margin);
+    /*
     margin-bottom: var(--content-margin);
     margin-left: var(--content-margin);
     margin-right: var(--content-margin);
+    */
     position: relative;
     background-color: var(--color-filter-blur-3);
     backdrop-filter: blur(.4rem);
     color: var(--text-color-light);
 }
 
+/*
 .hero-image-container section:first-child > .content {
     margin-top: var(--content-margin);
 }
+*/
 
 .card,
 .grid-card,
