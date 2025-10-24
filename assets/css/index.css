@@ -169,8 +169,6 @@ body {
 }
 
 .item .image {
-    width: 70%;
-    max-height: 200px;
     margin: 0 auto 1rem;
     display: flex;
     position: relative;
@@ -180,8 +178,8 @@ body {
 }
 
 .item .image img {
-    object-fit: contain;
-    object-position: center;
+    width: 100%;
+    max-height: 200px;
 }
 
 .item .data {
